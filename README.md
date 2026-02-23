@@ -1,64 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 🗳️ Election Voting System (Laravel 7/8 & PHP 7.4)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A lightweight voting application where users can cast votes for fictitious candidates and administrators can view real-time results. Designed to run without Node.js/NPM by using Bootstrap via CDN.
 
-## About Laravel
+## 🚀 Features
+- **Role-Based Dashboards**: Automatic switching between Admin (Results) and User (Ballot) views.
+- **Single Vote Enforcement**: Users can only vote once; the form is hidden after submission.
+- **Fictitious Data**: Pre-loaded with creative candidate and party names.
+- **No-Build UI**: Zero dependency on Vite or Laravel Mix for styling.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ⚙️ Installation & Setup
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Follow these steps to get the application running on your local machine:
 
-## Learning Laravel
+### 1. Environment Setup
+Clone the repository and install the PHP dependencies:
+```bash
+composer install
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Configure Database
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Create a new database in your MariaDB/MySQL server.
+Copy .env.example to .env and update the following lines:
+env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3303
+DB_DATABASE=your_db_name
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 
-## Laravel Sponsors
+3. Initialize Database & Seed Data
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+This command runs all migrations (creating tables for Users and Candidates) and executes the DatabaseSeeder.php file to create the Admin user and Election candidates:
+bash
+php artisan migrate:fresh --seed
 
-### Premium Partners
+4. Application Key
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Generate the secure application key:
+bash
+php artisan key:generate
 
-## Contributing
+5. Launch the App
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Start the local development server:
+bash
+php artisan serve
 
-## Code of Conduct
+Visit http://127.0.0.1:8000 in your browser.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+🔑 Default Credentials
+Use these to test the different dashboard views:
 
-## Security Vulnerabilities
+Admin User
+Username (Email): admin@example.com
+Password: user@123
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Standard User
+Register a new account via the UI or create one manually in the database.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
