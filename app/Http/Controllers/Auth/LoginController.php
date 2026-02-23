@@ -37,4 +37,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function index()
+    {
+        // 1. Get the logged-in user
+        $user = Auth::user();
+
+        // 2. Fetch candidates from your table
+        $candidates = DB::table('election_candidates')->get();
+
+        // 3. Pass data to the dashboard view
+        return view('home', [
+            'user' => $user,
+            'candidates' => $candidates
+        ]);
+    }
 }

@@ -21,6 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+             // user_level for roles
+            $table->string('user_level')->default('user');
+            // voted_candidate_id
+            $table->unsignedBigInteger('voted_candidate_id')->nullable();
         });
     }
 
