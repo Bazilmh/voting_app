@@ -23,7 +23,7 @@
                         <tr>
                             <td><strong>{{ $result->name }}</strong></td>
                             <td>{{ $result->party_name }}</td>
-                            <td><span class="badge badge-pill badge-success">{{ $result->total_votes }}</span></td>
+                            <td><span class="badge badge-pill badge-success" style="background-color: #28a745; color: white;">{{ $result->total_votes }}</span></td>
                         </tr>
                         @endforeach
                     </tbody>
