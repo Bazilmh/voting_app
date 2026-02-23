@@ -19,7 +19,7 @@ Clone the repository and install the PHP dependencies:
 
 composer install
 
-2. Configure Database
+### 2. Configure Database
 
 Create a new database in your MariaDB/MySQL server.
 Copy .env.example to .env and update the following lines:
@@ -31,19 +31,19 @@ DB_DATABASE=your_db_name
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
 
-3. Initialize Database & Seed Data
+### 3. Initialize Database & Seed Data
 
 This command runs all migrations (creating tables for Users and Candidates) and executes the DatabaseSeeder.php file to create the Admin user and Election candidates:
 bash
 php artisan migrate:fresh --seed
 
-4. Application Key
+### 4. Application Key
 
 Generate the secure application key:
 bash
 php artisan key:generate
 
-5. Launch the App
+### 5. Launch the App
 
 Start the local development server:
 bash
