@@ -16,7 +16,7 @@ Follow these steps to get the application running on your local machine:
 
 ### 1. Environment Setup
 Clone the repository and install the PHP dependencies:
-```bash
+
 composer install
 
 2. Configure Database
